@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Recursos/indice-de-masa-corporal.png</file>
+    </qresource>
+</RCC>

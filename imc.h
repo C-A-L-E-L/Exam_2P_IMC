@@ -2,6 +2,18 @@
 #define IMC_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <math.h>
+#include <QTranslator>
+#include <QInputDialog>
+#include <QPalette>
+
+#include "persona.h"
+#include "acerca.h"
+
+#define VERSION "1.0"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class IMC; }
@@ -15,7 +27,28 @@ public:
     IMC(QWidget *parent = nullptr);
     ~IMC();
 
+    bool agregarDatos(float altura, float peso);
+
+private slots:
+    void on_btnCalcular_released();
+
+    void on_actionNuevo_triggered();
+
+    void on_actionCalcular_triggered();
+
+    void on_actionSalir_triggered();
+
+    void on_actionAcerca_de_IMC_triggered();
+
 private:
     Ui::IMC *ui;
+
+    void calcularIMC();
+    void limpiar();
+    void validarEstado();
+
+    Persona *m_persona;
+    float m_imc;
+
 };
 #endif // IMC_H
