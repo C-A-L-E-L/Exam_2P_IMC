@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Acerca de</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(0, 170, 127);
+   <string notr="true">background-color: rgb(157, 157, 236);
 color: rgb(0, 0, 0);</string>
   </property>
   <widget class="QLabel" name="label">
@@ -73,7 +73,7 @@ color: rgb(0, 0, 0);</string>
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Icono tomado de: &lt;a href=&quot;https://www.flaticon.es/icono-premium/indice-de-masa-corporal_4721131?term=indice%20de%20masa%20corporal&amp;amp;page=1&amp;amp;position=5&amp;amp;page=1&amp;amp;position=5&amp;amp;related_id=4721131&amp;amp;origin=search&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0055ff;&quot;&gt;Flaticon&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Icono tomado de: &lt;a href=&quot;https://www.flaticon.es/icono-premium/indice-de-masa-corporal_4721131?term=indice%20de%20masa%20corporal&amp;amp;page=1&amp;amp;position=5&amp;amp;page=1&amp;amp;position=5&amp;amp;related_id=4721131&amp;amp;origin=search&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Flaticon&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="scaledContents">
     <bool>false</bool>
@@ -103,7 +103,7 @@ color: rgb(0, 0, 0);</string>
     </font>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copyright 2021-2022 &lt;span style=&quot; font-weight:600;&quot;&gt;Carlos Salcan&lt;/span&gt;. Universidad Politecnica Salesiana. Todos los derechos reservados. &lt;/p&gt;&lt;p&gt;Codigo disponible en: &lt;a href=&quot;https://github.com/C-A-L-E-L/Exam_2P_IMC&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copyright 2021-2022 &lt;span style=&quot; font-weight:600;&quot;&gt;Carlos Salcan&lt;/span&gt;. Universidad Politecnica Salesiana. Todos los derechos reservados. &lt;/p&gt;&lt;p&gt;Codigo disponible en: &lt;a href=&quot;https://github.com/C-A-L-E-L/Exam_2P_IMC&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;GitHub&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="wordWrap">
     <bool>true</bool>
@@ -112,7 +112,7 @@ color: rgb(0, 0, 0);</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>280</x>
      <y>120</y>
      <width>111</width>
      <height>111</height>

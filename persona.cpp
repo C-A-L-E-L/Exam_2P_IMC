@@ -36,8 +36,7 @@ QString Persona::tostring()
     QString str = "";
     // Mostrar los datos
     str.append("Fecha: " + fecha() + "\n");
-    str.append("Altura: " + QString::number(m_altura) + "\n");
-    str.append("Peso: " + QString::number(m_peso) + "\n");
+    return str;
 }
 
 QString Persona::fecha()

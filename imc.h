@@ -8,6 +8,9 @@
 #include <QTranslator>
 #include <QInputDialog>
 #include <QPalette>
+#include <QDialog>
+#include <QFile>
+#include <QTextStream>
 
 #include "persona.h"
 #include "acerca.h"
@@ -40,12 +43,20 @@ private slots:
 
     void on_actionAcerca_de_IMC_triggered();
 
+    void on_actionAbrir_triggered();
+
+    void on_actionGuardar_triggered();
+
+    void on_pushButton_released();
+
 private:
     Ui::IMC *ui;
 
     void calcularIMC();
     void limpiar();
     void validarEstado();
+    void guardar();
+    void abrir();
 
     Persona *m_persona;
     float m_imc;

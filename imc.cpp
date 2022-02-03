@@ -28,9 +28,9 @@ void IMC::calcularIMC()
     // Validar datos correctos y mostrar mensaje de advertencia
     if(peso == 0 || altura == 0){
         QMessageBox::warning(this,
-                             "ADVERTENCIA",
-                             "El peso o altura esta vacio/a");
-        //return;
+                             tr("ADVERTENCIA"),
+                             tr("El peso o altura esta vacio/a"));
+        return;
     }
 
     float imc = peso/pow(altura,2);
@@ -46,8 +46,8 @@ void IMC::calcularIMC()
 
 void IMC::limpiar()
 {
-    ui->inPeso->setValue(0);
-    ui->inAltura->setValue(0);
+    ui->inPeso->setValue(0.00);
+    ui->inAltura->setValue(0.00);
     ui->outPesoActual->setText("");
     ui->outPesoMax->setText("");
     ui->outPesoMin->setText("");
@@ -57,20 +57,68 @@ void IMC::limpiar()
 
 void IMC::validarEstado()
 {
-    QString bdp="Bajo del peso";
-    //QPalette palette=ui->outEstado->palette();
-    if(m_imc < 19.5){
-        //palette.setColor(ui->outEstado->foregroundRole(),Qt::red);
-        ui->outEstado->setStyleSheet("background-color: red");
-        //ui->outEstado->setText("Bajo el peso");
-        //ui->outEstado->setStyleSheet("qlabel { background-color : red;}");
-        ui->outEstado->setStyleSheet("QLabel{ background-color: red}");
+    QString bdp=tr("Bajo de peso");
+    QString pn=tr("Peso normal");
+    QString sp=tr("Sobre Peso");
+    QString ob=tr("Obesidad");
+
+    if(m_imc < 18.5){
+        ui->outEstado->setText(QString(bdp));
+        ui->outEstado->setStyleSheet("QLabel {color: blue}");
+        ui->outBajoF->setStyleSheet("QLabel {color: black}");
+    }
+
+    if(m_imc >= 18.5 && m_imc <= 24.9){
+        ui->outEstado->setText(QString(pn));
+        ui->outEstado->setStyleSheet("QLabel {color: green}");
+        ui->outBienF->setStyleSheet("QLabel {color: black}");
+    }
+
+    if(m_imc >= 25.0 && m_imc <= 29.9){
+        ui->outEstado->setText(QString(sp));
+        ui->outEstado->setStyleSheet("QLabel {color: orange}");
+        ui->outSobreF->setStyleSheet("QLabel {color: black}");
+    }
+
+    if(m_imc > 30.0){
+        ui->outEstado->setText(QString(ob));
+        ui->outEstado->setStyleSheet("QLabel {color: red}");
+        ui->outSobreF->setStyleSheet("QLabel {color: black}");
+    }
+}
+
+void IMC::guardar()
+{
+    // Abrir cuadro de dialogo para selecionar nombre y ubicación del archivo
+    QString nombreArchivo = QFileDialog::getSaveFileName(this,
+                                                         tr("GUARDAR ARCHIVO"),
+                                                         QDir::home().absolutePath(),
+                                                         "Archivos de salario (*.txt)");
+    // Crear un obj QFile
+    QFile archivo(nombreArchivo);
+    // Abrirlo para escritura
+    if(archivo.open(QFile::WriteOnly | QFile::Truncate)){
+        // Crear stream [Flujo de texto]
+        QTextStream salida(&archivo);
+        // Enviar los datos del resultado a la salida
+        salida << "\n\t* * IMC * *\n\n";
+        salida << tr("Fecha: ") << m_persona->tostring() << "\n";
+        salida << "===================================\n";
+        salida << tr("Altura: ") << ui->inAltura->value() << "[m]\n";
+        salida << tr("Peso: ") << ui->inPeso->value() << "[kg]\n";
+        salida << tr("IMC: ") << ui->outImc->text() << " [kg/m^2]\t[" << ui->outEstado->text() << "]\n\n";
+    }else{
+        // Mensaje de error si no s epeude abrir el archivo
+        QMessageBox::warning(this,
+                             tr("GUARDAR"),
+                             tr("No se logro salvar el archivo"));
     }
 }
 
 void IMC::on_btnCalcular_released()
 {
     calcularIMC();
+    validarEstado();
 }
 
 void IMC::on_actionNuevo_triggered()
@@ -80,7 +128,7 @@ void IMC::on_actionNuevo_triggered()
 
 void IMC::on_actionCalcular_triggered()
 {
-    calcularIMC();
+    on_btnCalcular_released();
 }
 
 void IMC::on_actionSalir_triggered()
@@ -100,3 +148,13 @@ void IMC::on_actionAcerca_de_IMC_triggered()
     dialogo->exec();
 }
 
+void IMC::on_actionGuardar_triggered()
+{
+    on_pushButton_released();
+}
+
+
+void IMC::on_pushButton_released()
+{
+    guardar();
+}
