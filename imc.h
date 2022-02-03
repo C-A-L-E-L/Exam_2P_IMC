@@ -57,9 +57,13 @@ private:
     void validarEstado();
     void guardar();
     void abrir();
+    void mostrar();
+    void archivo();
 
     Persona *m_persona;
     float m_imc;
+    QString name;
+    QString printed;
 
 };
 #endif // IMC_H

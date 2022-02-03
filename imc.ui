@@ -161,7 +161,7 @@ background-color: rgb(255, 255, 255);</string>
                 <string notr="true">color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
-                <string>TextLabel</string>
+                <string>0.00</string>
                </property>
               </widget>
              </item>
@@ -221,7 +221,7 @@ background-color: rgb(255, 255, 255);</string>
                 <string notr="true">color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
-                <string>TextLabel</string>
+                <string>0.00</string>
                </property>
               </widget>
              </item>
@@ -281,7 +281,7 @@ background-color: rgb(255, 255, 255);</string>
                 <string notr="true">color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
-                <string>TextLabel</string>
+                <string>0.00</string>
                </property>
               </widget>
              </item>
@@ -438,7 +438,7 @@ background-color: rgb(0, 77, 230);</string>
                 <string notr="true">color: rgb(0, 0, 0);</string>
                </property>
                <property name="text">
-                <string>TextLabel</string>
+                <string>0.00</string>
                </property>
               </widget>
              </item>
@@ -775,7 +775,7 @@ background-color: rgb(0, 77, 230);</string>
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>TextLabel</string>
+                <string>Estado</string>
                </property>
               </widget>
              </item>

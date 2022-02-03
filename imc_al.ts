@@ -62,8 +62,7 @@
         <location filename="imc.ui" line="224"/>
         <location filename="imc.ui" line="284"/>
         <location filename="imc.ui" line="441"/>
-        <location filename="imc.ui" line="778"/>
-        <source>TextLabel</source>
+        <source>0.00</source>
         <translation></translation>
     </message>
     <message>
@@ -116,6 +115,11 @@
         <location filename="imc.ui" line="728"/>
         <source>0                 18,5                  24,9              25,0             30.0</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="imc.ui" line="778"/>
+        <source>Estado</source>
+        <translation>Kondition</translation>
     </message>
     <message>
         <location filename="imc.ui" line="822"/>
@@ -185,12 +189,12 @@
     <message>
         <location filename="imc.cpp" line="31"/>
         <source>ADVERTENCIA</source>
-        <translation>Warnung</translation>
+        <translation>WARNUNG</translation>
     </message>
     <message>
         <location filename="imc.cpp" line="32"/>
         <source>El peso o altura esta vacio/a</source>
-        <translation>Leergewicht oder Höhe</translation>
+        <translation>Gewicht oder Höhe ist leer</translation>
     </message>
     <message>
         <location filename="imc.cpp" line="60"/>
@@ -205,7 +209,7 @@
     <message>
         <location filename="imc.cpp" line="62"/>
         <source>Sobre Peso</source>
-        <translation>Übergewicht</translation>
+        <translation>etwa Gewicht</translation>
     </message>
     <message>
         <location filename="imc.cpp" line="63"/>
@@ -215,7 +219,7 @@
     <message>
         <location filename="imc.cpp" line="94"/>
         <source>GUARDAR ARCHIVO</source>
-        <translation>Datei speichern</translation>
+        <translation>DATEI SPEICHERN</translation>
     </message>
     <message>
         <location filename="imc.cpp" line="105"/>
@@ -234,16 +238,31 @@
     </message>
     <message>
         <location filename="imc.cpp" line="109"/>
+        <source>Peso Actual: </source>
+        <translation>Gewicht Strom: </translation>
+    </message>
+    <message>
+        <location filename="imc.cpp" line="110"/>
+        <source>Peso Max: </source>
+        <translation>Gewicht max: </translation>
+    </message>
+    <message>
+        <location filename="imc.cpp" line="111"/>
+        <source>Peso Min: </source>
+        <translation>Gewicht Min: </translation>
+    </message>
+    <message>
+        <location filename="imc.cpp" line="112"/>
         <source>IMC: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="imc.cpp" line="113"/>
+        <location filename="imc.cpp" line="116"/>
         <source>GUARDAR</source>
-        <translation>speichern</translation>
+        <translation>SPEICHERN</translation>
     </message>
     <message>
-        <location filename="imc.cpp" line="114"/>
+        <location filename="imc.cpp" line="117"/>
         <source>No se logro salvar el archivo</source>
         <translation>konnte die Datei nicht speichern</translation>
     </message>

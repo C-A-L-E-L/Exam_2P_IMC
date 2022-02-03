@@ -18,15 +18,14 @@ int main(int argc, char *argv[])
                                                        idiomas);
     // Dependiendo del idioma seleccionado, carga el archivo de rtaducción
     if (idiomaSeleccionado == "Alemán"){
-        traducion.load(":/tienda_ale.qm");
+        traducion.load(":/imc_al.qm");
     }
 
-    if (idiomaSeleccionado == "Alemán"){
+    if (idiomaSeleccionado == "Español"){
         a.installTranslator(&traducion);
     }
-
     // Si es diferente de español, se instala la traducción en TODA la aplicación
-    if (idiomaSeleccionado != "Español"){
+    if (idiomaSeleccionado != "Español" && idiomaSeleccionado != "Alemán"){
         a.installTranslator(&traducion);
     }
     // Muestra la ventana principal

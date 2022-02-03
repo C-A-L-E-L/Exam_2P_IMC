@@ -106,6 +106,9 @@ void IMC::guardar()
         salida << "===================================\n";
         salida << tr("Altura: ") << ui->inAltura->value() << "[m]\n";
         salida << tr("Peso: ") << ui->inPeso->value() << "[kg]\n";
+        salida << tr("Peso Actual: ") << ui->outPesoActual->text() << "[kg]\n";
+        salida << tr("Peso Max: ") << ui->outPesoMax->text() << "[kg]\n";
+        salida << tr("Peso Min: ") << ui->outPesoMin->text() << "[kg]\n";
         salida << tr("IMC: ") << ui->outImc->text() << " [kg/m^2]\t[" << ui->outEstado->text() << "]\n\n";
     }else{
         // Mensaje de error si no s epeude abrir el archivo
@@ -113,6 +116,31 @@ void IMC::guardar()
                              tr("GUARDAR"),
                              tr("No se logro salvar el archivo"));
     }
+}
+
+void IMC::abrir()
+{
+    QString nombreArchivo = QFileDialog::getOpenFileName(this,
+                                                         "Abrir archivo",
+                                                         QDir::home().absolutePath(),
+                                                         "Archivos de salarios (*.txt)");
+    QFile archivo(nombreArchivo);
+    if(archivo.open(QFile::ReadOnly)){
+        QTextStream entrada(&archivo);
+        QString datos = entrada.readAll();
+        QString dato1= entrada.readLine(12);
+        //ui->outTexto->clear();
+
+        ui->outPesoActual->setText(datos);
+        ui->outPesoMax->setText(dato1);
+        ui->outPesoMin->setText(dato1);
+        ui->statusbar->showMessage("Datos leidos desde " + nombreArchivo, 500);
+    }else {
+        QMessageBox::warning(this,
+                             "Abrir datos",
+                             "No se pudo abrir el archivo");
+    }
+    archivo.close();
 }
 
 void IMC::on_btnCalcular_released()
@@ -153,8 +181,13 @@ void IMC::on_actionGuardar_triggered()
     on_pushButton_released();
 }
 
-
 void IMC::on_pushButton_released()
 {
     guardar();
 }
+
+void IMC::on_actionAbrir_triggered()
+{
+    abrir();
+}
+

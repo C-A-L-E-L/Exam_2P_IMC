@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>Recursos/indice-de-masa-corporal.png</file>
+        <file>imc_al.qm</file>
     </qresource>
 </RCC>
