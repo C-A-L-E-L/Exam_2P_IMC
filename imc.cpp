@@ -48,11 +48,11 @@ void IMC::limpiar()
 {
     ui->inPeso->setValue(0.00);
     ui->inAltura->setValue(0.00);
-    ui->outPesoActual->setText("");
-    ui->outPesoMax->setText("");
-    ui->outPesoMin->setText("");
-    ui->outImc->setText("");
-    ui->outEstado->setText("");
+    ui->outPesoActual->setText("0.00");
+    ui->outPesoMax->setText("0.00");
+    ui->outPesoMin->setText("0.00");
+    ui->outImc->setText("0.00");
+    ui->outEstado->setText("0.00");
 }
 
 void IMC::validarEstado()
@@ -103,7 +103,6 @@ void IMC::guardar()
         // Enviar los datos del resultado a la salida
         salida << "\n\t* * IMC * *\n\n";
         salida << tr("Fecha: ") << m_persona->tostring() << "\n";
-        salida << "===================================\n";
         salida << tr("Altura: ") << ui->inAltura->value() << "[m]\n";
         salida << tr("Peso: ") << ui->inPeso->value() << "[kg]\n";
         salida << tr("Peso Actual: ") << ui->outPesoActual->text() << "[kg]\n";
@@ -120,26 +119,30 @@ void IMC::guardar()
 
 void IMC::abrir()
 {
+    // Abrir cuadro de dialogo para selecionar nombre y ubicación del archivo
     QString nombreArchivo = QFileDialog::getOpenFileName(this,
-                                                         "Abrir archivo",
+                                                         "ABRIR ARCHIVO",
                                                          QDir::home().absolutePath(),
-                                                         "Archivos de salarios (*.txt)");
+                                                         "Archivos de salario (*.txt)");
+    // Crear un obj QFile
     QFile archivo(nombreArchivo);
+    // Abrirlo para lectura
     if(archivo.open(QFile::ReadOnly)){
+        // Crear stream [Flujo de texto]
         QTextStream entrada(&archivo);
+        // Leer  rodo el contenido del archivo
         QString datos = entrada.readAll();
-        QString dato1= entrada.readLine(12);
-        //ui->outTexto->clear();
-
+        // Cargar el contenido al area texto
         ui->outPesoActual->setText(datos);
-        ui->outPesoMax->setText(dato1);
-        ui->outPesoMin->setText(dato1);
-        ui->statusbar->showMessage("Datos leidos desde " + nombreArchivo, 500);
-    }else {
+        // MOstrar por 5 seg que todo salio bien
+        ui->statusbar->showMessage("Datos leidos desde " + nombreArchivo,5000);
+    }else{
+        // Mensaje de error si no s epeude abrir el archivo
         QMessageBox::warning(this,
-                             "Abrir datos",
-                             "No se pudo abrir el archivo");
+                             "ABRIR ARCHIVOS",
+                             "No se puede abrir el archivo");
     }
+    // Cerrar el archivo
     archivo.close();
 }
 
@@ -190,4 +193,3 @@ void IMC::on_actionAbrir_triggered()
 {
     abrir();
 }
-

@@ -1,3 +1,12 @@
+/**
+ * Algoritmo para obtener IMC
+ *
+ * Autor: Carlos Salcan [CaLeL]
+ * Fecha: 02 de febrero del 2022
+ * Correo: csalcan@est.ups.edu.ec
+ *
+ */
+
 #include "imc.h"
 
 #include <QApplication>
@@ -20,12 +29,8 @@ int main(int argc, char *argv[])
     if (idiomaSeleccionado == "Alemán"){
         traducion.load(":/imc_al.qm");
     }
-
-    if (idiomaSeleccionado == "Español"){
-        a.installTranslator(&traducion);
-    }
     // Si es diferente de español, se instala la traducción en TODA la aplicación
-    if (idiomaSeleccionado != "Español" && idiomaSeleccionado != "Alemán"){
+    if (idiomaSeleccionado != "Español"){
         a.installTranslator(&traducion);
     }
     // Muestra la ventana principal

@@ -1,3 +1,12 @@
+/**
+ * Algoritmo para obtener IMC
+ *
+ * Autor: Carlos Salcan [CaLeL]
+ * Fecha: 02 de febrero del 2022
+ * Correo: csalcan@est.ups.edu.ec
+ *
+ */
+
 #ifndef PERSONA_H
 #define PERSONA_H
 
